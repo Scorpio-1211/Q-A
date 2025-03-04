@@ -8,7 +8,7 @@ const startBtn = document.querySelector('.startBtn');
 const timer = document.querySelector('.timer');
 
 
-// Make an array of objects that stores question, choices of question and answer
+// Tạo một mảng các đối tượng lưu trữ câu hỏi, các lựa chọn câu hỏi và câu trả lời
 const quiz = [
     {
         question: "Q. Bệnh lây qua đường sinh dục có thể gây ra những vấn đề gì cho sức khỏe sinh sản?",
@@ -63,14 +63,15 @@ const quiz = [
 ];
 
 
-// Making Variables
+// Tạo biến
 let currentQuestionIndex = 0;
 let score = 0;
 let quizOver = false;
 let timeLeft = 300;
 let timerID = null;
 
-// Arrow Function to Show Questions
+
+// Hàm mũi tên để hiển thị câu hỏi
 const showQuestions = () => {
     const questionDetails = quiz[currentQuestionIndex];
     questionBox.textContent = questionDetails.question;
@@ -98,7 +99,7 @@ const showQuestions = () => {
     }
 }
 
-// Function to check answers
+// Hàm kiểm tra câu trả lời
 const checkAnswer = () => {
     const selectedChoice = document.querySelector('.choice.selected');
     if (selectedChoice.textContent === quiz[currentQuestionIndex].answer) {
@@ -121,7 +122,7 @@ const checkAnswer = () => {
     }
 }
 
-// Function to show score
+// Hàm hiển thị điểm
 const showScore = () => {
     questionBox.textContent = "";
     choicesBox.textContent = "";
@@ -132,7 +133,7 @@ const showScore = () => {
     timer.style.display = "none";
 }
 
-// Function to Show Alert
+// Hàm Hiển Thị Cảnh Báo
 const displayAlert = (msg) => {
     alert.style.display = "block";
     alert.textContent = msg;
@@ -141,9 +142,9 @@ const displayAlert = (msg) => {
     }, 5000);
 }
 
-// Function to Start Timer
+// Hàm để bắt đầu bộ đếm thời gian
 const startTimer = () => {
-    clearInterval(timerID); // Check for any exist timers
+    clearInterval(timerID); // Kiểm tra xem có bộ đếm thời gian nào tồn tại không
     timer.textContent = timeLeft;
 
     const countDown = ()=>{
@@ -165,12 +166,12 @@ const startTimer = () => {
     timerID = setInterval(countDown, 1000);
 }
 
-// Function to Stop Timer
+// Hàm dừng bộ đếm thời gian
 const stopTimer = () =>{
     clearInterval(timerID);
 }
 
-// Function to shuffle question
+// Hàm xáo trộn câu hỏi
 const shuffleQuestions = () =>{
     for(let i=quiz.length-1; i>0; i--){
         const j = Math.floor(Math.random() * (i+1));
@@ -180,14 +181,14 @@ const shuffleQuestions = () =>{
     showQuestions();
 }
 
-// Function to Start Quiz
+// Hàm để bắt đầu bài kiểm tra
 const startQuiz = () =>{
     timeLeft = 300;
     timer.style.display = "flex";
     shuffleQuestions();
 }
 
-// Adding Event Listener to Start Button
+// Thêm Event Listener vào nút Start
 startBtn.addEventListener('click', ()=>{
     startBtn.style.display = "none";
     container.style.display = "block";
