@@ -151,7 +151,7 @@ const startTimer = () => {
         if(timeLeft === 0){
             const confirmUser = confirm("Time Up!!! Do you want to play the quiz again");
             if(confirmUser){
-                timeLeft = 300;
+                timeLeft = 600;
                 startQuiz();
             }
             else{
@@ -181,7 +181,7 @@ const shuffleQuestions = () =>{
 
 // Function to Start Quiz
 const startQuiz = () =>{
-    timeLeft = 300;
+    timeLeft = 500;
     timer.style.display = "flex";
     shuffleQuestions();
 }
