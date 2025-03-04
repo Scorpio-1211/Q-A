@@ -110,7 +110,7 @@ const checkAnswer = () => {
         // alert("Wrong answer");
         displayAlert(`Sai: ${quiz[currentQuestionIndex].answer} là đáp án đúng`);
     }
-    timeLeft = 900000;
+    timeLeft = 300;
     currentQuestionIndex++;
     if (currentQuestionIndex < quiz.length) {
         showQuestions();
@@ -138,7 +138,7 @@ const displayAlert = (msg) => {
     alert.textContent = msg;
     setTimeout(()=>{
         alert.style.display = "none";
-    }, 2000);
+    }, 5000);
 }
 
 // Function to Start Timer
