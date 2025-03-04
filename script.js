@@ -109,7 +109,7 @@ const checkAnswer = () => {
         // alert("Wrong answer");
         displayAlert(`Đáp án! ${quiz[currentQuestionIndex].answer} là câu trả lời đúng`);
     }
-    timeLeft = 300;
+    timeLeft = 1000;
     currentQuestionIndex++;
     if (currentQuestionIndex < quiz.length) {
         showQuestions();
