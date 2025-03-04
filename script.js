@@ -62,11 +62,12 @@ const quiz = [
     },
 ];
 
+
 // Making Variables
 let currentQuestionIndex = 0;
 let score = 0;
 let quizOver = false;
-let timeLeft = 5000;
+let timeLeft = 300;
 let timerID = null;
 
 // Arrow Function to Show Questions
@@ -102,14 +103,14 @@ const checkAnswer = () => {
     const selectedChoice = document.querySelector('.choice.selected');
     if (selectedChoice.textContent === quiz[currentQuestionIndex].answer) {
         // alert("Correct Answer!");
-        displayAlert("Correct Answer!");
+        displayAlert("Chính xác !");
         score++;
     }
     else {
         // alert("Wrong answer");
-        displayAlert(`Đáp án! ${quiz[currentQuestionIndex].answer} là câu trả lời đúng`);
+        displayAlert(`Sai: ${quiz[currentQuestionIndex].answer} là đáp án đúng`);
     }
-    timeLeft = 5000;
+    timeLeft = 300;
     currentQuestionIndex++;
     if (currentQuestionIndex < quiz.length) {
         showQuestions();
@@ -124,9 +125,9 @@ const checkAnswer = () => {
 const showScore = () => {
     questionBox.textContent = "";
     choicesBox.textContent = "";
-    scoreCard.textContent = `You Scored ${score} out of ${quiz.length}!`;
-    displayAlert("You have completed this quiz!");
-    nextBtn.textContent = "Play Again";
+    scoreCard.textContent = `Bạn đã trả lời đúng ${score} trong tổng số ${quiz.length} câu hỏi!`;
+    displayAlert("Chúc mừng bạn đã hoàn thành !");
+    nextBtn.textContent = "Chơi Lại";
     quizOver = true;
     timer.style.display = "none";
 }
@@ -149,9 +150,9 @@ const startTimer = () => {
         timeLeft--;
         timer.textContent = timeLeft;
         if(timeLeft === 0){
-            const confirmUser = confirm("Time Up!!! Do you want to play the quiz again");
+            const confirmUser = confirm("Hết Giờ!!! Bạn có muốn chơi lại không?");
             if(confirmUser){
-                timeLeft = 5000;
+                timeLeft = 300;
                 startQuiz();
             }
             else{
@@ -161,7 +162,7 @@ const startTimer = () => {
             }
         }
     }
-    timerID = setInterval(countDown, 5000);
+    timerID = setInterval(countDown, 1000);
 }
 
 // Function to Stop Timer
