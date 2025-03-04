@@ -109,7 +109,7 @@ const checkAnswer = () => {
         // alert("Wrong answer");
         displayAlert(`Đáp án! ${quiz[currentQuestionIndex].answer} là câu trả lời đúng`);
     }
-    timeLeft = 1000;
+    timeLeft = 5000;
     currentQuestionIndex++;
     if (currentQuestionIndex < quiz.length) {
         showQuestions();
@@ -151,7 +151,7 @@ const startTimer = () => {
         if(timeLeft === 0){
             const confirmUser = confirm("Time Up!!! Do you want to play the quiz again");
             if(confirmUser){
-                timeLeft = 600;
+                timeLeft = 5000;
                 startQuiz();
             }
             else{
@@ -161,7 +161,7 @@ const startTimer = () => {
             }
         }
     }
-    timerID = setInterval(countDown, 1000);
+    timerID = setInterval(countDown, 5000);
 }
 
 // Function to Stop Timer
@@ -181,7 +181,7 @@ const shuffleQuestions = () =>{
 
 // Function to Start Quiz
 const startQuiz = () =>{
-    timeLeft = 500;
+    timeLeft = 5000;
     timer.style.display = "flex";
     shuffleQuestions();
 }
